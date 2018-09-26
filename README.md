@@ -3,7 +3,7 @@
 ## What is Redux
 
 Redux is a very powerful **state management** tool, often used with a web framework such as React.
-Using a `store` to hold a global state horizontally throughout a web platform, which makes communication between components much simpler to handle and maintain in complex systems.
+Is uses a `store` to hold a global state horizontally throughout a web platform, which makes communication between components much simpler to handle and maintain in complex systems.
 
 ### Redux Flow
 
@@ -33,15 +33,15 @@ Reactions, if needed, are passed as arguments in the _action_ layer.
 
 Reactions **must contain** an argument called _next_, passed by the middleware, to allow the user to forward a given action to the reducer (or next middleware), whenever needed.
 
--   Example of simple reactions : `onSuccess`, `onError`, `onThrottle`, `onUnexpectedStatus`,..
+- Example of simple reactions : `onSuccess`, `onError`, `onThrottle`, `onUnexpectedStatus`,..
 
--   Detailed example of `onSuccess`:
+- Detailed example of `onSuccess`:
 
 In `/reactions` :
 
     export const success = (newAction, next) => {
-    	console.log("SUCCESS!", newAction);
-    	next(newAction);
+      console.log("SUCCESS!", newAction);
+      next(newAction);
     };
 
 In `/actions` :
@@ -50,15 +50,15 @@ In `/actions` :
     import { success } from "../reactions/success";
 
     export const fetchApi = () => {
-    	type: actions.FETCH_API,
-    	payload: {},
-    	axiom: {
-    		axios: {
-    			method:`get`,
-    			url:`https://itunes.apple.com/search?term=hello`
-    		}
-    		onSuccess: success
-    	}
+      type: actions.FETCH_API,
+      payload: {},
+      axiom: {
+        axios: {
+          method:`get`,
+          url:`https://itunes.apple.com/search?term=hello`
+        }
+        onSuccess: success
+      }
     }
 
 ### Redux 4M data-flow
@@ -70,18 +70,18 @@ In `/actions` :
 Middleware could be used for just about anything.
 Common uses could include, (not limited to) :
 
--   encryption / decryption
--   hashing
--   throttling (e.g. [Hurakken](https://github.com/vbuzzegoli/hurakken))
--   logging
--   analytics
--   performance tracking
--   networking / REST (e.g. [Axiom](https://github.com/vbuzzegoli/axiom))
--   multi-dispatching
+- encryption / decryption
+- hashing
+- throttling (e.g. [Hurakken](https://github.com/vbuzzegoli/hurakken))
+- logging
+- analytics
+- performance tracking
+- networking / REST (e.g. [Axiom](https://github.com/vbuzzegoli/axiom))
+- multi-dispatching
 
 ## Version
 
-1.2.0
+1.2.1
 
 ## Credits
 
