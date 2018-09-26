@@ -25,6 +25,8 @@ The _4M_ consists in relaying all operations, such as complex, redondant, or asy
 
 Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation.
 
+A _4M_ compliant middleware is **self sufficient** and **reusable**.
+
 A _4M_ compliant middleware has to use a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
 
 A _4M_ compliant middleware can use a new layer in the data-flow called **Reactions**. Reactions are functions executed at the end of a given middleware operation, meant to override the default behaviour of the middleware. They can be used for any purposes, such as action routing.
@@ -81,7 +83,7 @@ Common uses could include, (not limited to) :
 
 ## Version
 
-1.2.2
+1.2.3
 
 ## Credits
 
