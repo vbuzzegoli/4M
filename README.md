@@ -39,7 +39,7 @@ Reactions **must contain** an argument called _next_, passed by the middleware, 
 
 In `/reactions` :
 
-    export const fetchSuccessful = (action, next) => {
+    export const customReaction = (action, next) => {
       console.log("SUCCESS!", action);
       next(action);
     };
@@ -47,7 +47,7 @@ In `/reactions` :
 In `/actions` :
 
     import * as actions from "../constants/action-types";
-    import { fetchSuccessful } from "../reactions/fetchSuccessful";
+    import { customReaction } from "../reactions/customReaction";
 
     export const fetchApi = () => {
       type: actions.FETCH_API,
@@ -57,7 +57,7 @@ In `/actions` :
           method:`get`,
           url:`https://itunes.apple.com/search?term=hello`
         },
-        onSuccess: fetchSuccessful
+        onSuccess: customReaction
       }
     }
 
