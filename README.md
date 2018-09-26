@@ -41,13 +41,16 @@ Reactions **must contain** an argument called _next_, passed by the middleware, 
 
 In `/reactions` :
 
-    export const customReaction = (action, next) => {
-      console.log("SUCCESS!", action);
-      next(action);
-    };
+```javascript
+export const customReaction = (action, next) => {
+  console.log("SUCCESS!", action);
+  next(action);
+};
+```
 
 In `/actions` :
 
+```javascript
     import * as actions from "../constants/action-types";
     import { customReaction } from "../reactions/customReaction";
 
@@ -62,6 +65,7 @@ In `/actions` :
         onSuccess: customReaction
       }
     }
+```
 
 ### Redux 4M data-flow
 
@@ -83,7 +87,7 @@ Common uses could include, (not limited to) :
 
 ## Version
 
-1.2.3
+1.2.4
 
 ## Credits
 
