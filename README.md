@@ -39,25 +39,25 @@ Reactions **must contain** an argument called _next_, passed by the middleware, 
 
 In `/reactions` :
 
-    export const success = (newAction, next) => {
-      console.log("SUCCESS!", newAction);
-      next(newAction);
+    export const fetchSuccessful = (action, next) => {
+      console.log("SUCCESS!", action);
+      next(action);
     };
 
 In `/actions` :
 
     import * as actions from "../constants/action-types";
-    import { success } from "../reactions/success";
+    import { fetchSuccessful } from "../reactions/fetchSuccessful";
 
     export const fetchApi = () => {
       type: actions.FETCH_API,
-      payload: {},
+      payload: [],
       axiom: {
         axios: {
           method:`get`,
           url:`https://itunes.apple.com/search?term=hello`
-        }
-        onSuccess: success
+        },
+        onSuccess: fetchSuccessful
       }
     }
 
@@ -81,7 +81,7 @@ Common uses could include, (not limited to) :
 
 ## Version
 
-1.2.1
+1.2.2
 
 ## Credits
 
