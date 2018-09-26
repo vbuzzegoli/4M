@@ -27,11 +27,11 @@ Besides, using middleware accordingly to the 4M allows one to _drastically simpl
 
 A _4M_ compliant middleware has to use a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
 
-A _4M_ compliant middleware can use a new layer in the data-flow called **Reactions**. Reactions are functions executed at the end of a given middleware operation, meant to override the default behaviour of the middleware.
+A _4M_ compliant middleware can use a new layer in the data-flow called **Reactions**. Reactions are functions executed at the end of a given middleware operation, meant to override the default behaviour of the middleware. They can be used for any purposes, such as action routing.
 
 Reactions, if needed, are passed as arguments in the _action_ layer.
 
-Reactions **must contain** an argument called _next_, passed by the middleware, to allow the user to forward a given action to the reducer (or next middleware), whenever needed.
+Reactions **must contain** an argument called _next_, passed by the middleware, to allow the user to forward a given action, or several actions, to the reducer (or next middleware), whenever needed.
 
 - Example of simple reactions : `onSuccess`, `onError`, `onThrottle`, `onUnexpectedStatus`,..
 
