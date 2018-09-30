@@ -3,7 +3,7 @@
 ## What is Redux
 
 Redux is a very powerful **state management** tool, often used with a web framework such as React.
-Is uses a `store` to hold a global state horizontally throughout a web platform, which makes communication between components much simpler to handle and maintain in complex systems.
+It uses a `store` to hold a global state horizontally throughout a web platform, which makes communication between components much simpler to handle and maintain in complex systems.
 
 ### Redux Flow
 
@@ -87,7 +87,7 @@ Common uses could include, (not limited to) :
 
 ## Version
 
-1.2.4
+1.2.5
 
 ## Credits
 
