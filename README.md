@@ -73,6 +73,26 @@ In `/actions` :
 
 ![redux-4M-flow](resources/redux-4M-flow.jpg)
 
+### The 15 Commandments
+
+To be **4M** compliant you'll need to tick all of these boxes :
+
+1. **All operations** should be implemented in the middleware
+2. Actions must remain **javascript objects**
+3. Actions must be used as a configuration for the middleware
+4. Each operation must be implemented in its **own dedicated module** (or middleware)
+5. Each middleware must use a **unique parent key** for its configuration, to ensure cross compatibility
+6. Each middleware must not override any other configuration objects, not related to its parent key
+7. Each middleware must be **self sufficient** and **reusable**, it should only rely on its own configuration key and its effect must be limited to its own module
+8. Each middleware must include a `_skip` filtering internally, to allow backward compatibility with _thunk_ or _saga_
+9. If a middleware cannot find its own configuration key in the _action_, it should only relay the later to the next middleware / reducer without any form of action or mutation
+10. Each middleware must have a `log` parameter to enable related logs in the console (may also have a `xlog` for extended logs if needed)
+11. Each middleware must allow **reactions** to be passed in its configuration object, to override the default behaviour of the middleware
+12. Internally, these _reactions_ must always be called at the end of the core process of the middleware, no action or mutation can possibly come after the call a given reaction
+13. _Reactions_ must at least contain these 3 arguments, passed by the middleware : `action`, `next`, `dispatch`
+14. A middleware should mutate the `action.type` and never handle routing on its own. Routing, being specific to every project, should be handled in the _Reaction_ layer
+15. Live a much happier life using Redux from now on :rocket:
+
 ### Examples of use
 
 Middleware could be used for just about anything.
@@ -119,7 +139,7 @@ In `/actions` :
 
 ## Version
 
-1.5.0
+1.5.1
 
 ## Credits
 
