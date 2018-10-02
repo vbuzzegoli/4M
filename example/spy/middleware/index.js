@@ -23,7 +23,7 @@ const spy = store => next => action => {
     if (log) {
       if (onLog) {
         // Custom Reaction
-        onLog(newAction, next);
+        onLog(newAction, next, store.dispatch);
       } else {
         // Default behaviour
         console.log(`[ACTION : ${newAction.type}]`, newAction);
