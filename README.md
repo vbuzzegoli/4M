@@ -31,7 +31,7 @@ A _4M_ compliant middleware can use a new layer in the data-flow called **Reacti
 
 Reactions, if needed, are passed as arguments in the _action_ layer.
 
-Reactions **must contain** an argument called _next_, passed by the middleware, to allow the user to forward a given action, or several actions, to the reducer (or next middleware), whenever needed.
+Reactions **must contain** an argument called _next_, passed by the middleware, to allow the user to forward a given action, or several actions, to the reducer (or next middleware), whenever needed. They must also contain a `dispatch` argument to be able to dispatch new actions if necessary.
 
 - Example of simple reactions : `onSuccess`, `onError`, `onThrottle`, `onUnexpectedStatus`,..
 
@@ -40,8 +40,10 @@ Reactions **must contain** an argument called _next_, passed by the middleware, 
 In `/reactions` :
 
 ```javascript
-export const customReaction = (action, next) => {
+export const customReaction = (action, next, dispatch) => {
   console.log("SUCCESS!", action);
+  dispatch({ type: `ANOTHER_ACTION`, payload: 0 });
+  dispatch({ type: `YET_ANOTHER_ACTION`, payload: 0 });
   next(action);
 };
 ```
@@ -117,7 +119,7 @@ In `/actions` :
 
 ## Version
 
-1.4.0
+1.5.0
 
 ## Credits
 
