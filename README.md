@@ -85,9 +85,39 @@ Common uses could include, (not limited to) :
 - networking / REST (e.g. [Axiom](https://github.com/vbuzzegoli/axiom))
 - multi-dispatching
 
+### Chaining middleware for complex flows
+
+The biggest power of the _4M_ implementation relies in its ability to chain modules and create complex flows.
+
+Therefore you could have :
+
+In `/actions` :
+
+```javascript
+    export const fetchApi = () => {
+      type: actions.FETCH_API,
+      payload: [],
+      hurakken: {
+        throttle: 3000,
+        onRejected: actionRejected
+      },
+      axiom: {
+        axios: {
+          method:`get`,
+          url:`https://itunes.apple.com/search?term=hello`
+        },
+        onSuccess: requestSuccess,
+        onError: requestError
+      },
+      spy: {
+        log: true
+      }
+    }
+```
+
 ## Version
 
-1.3.1
+1.4.0
 
 ## Credits
 
