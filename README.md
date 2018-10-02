@@ -21,13 +21,11 @@ It's real power and complexity relies in its _middleware_.
 
 ### What is the 4M ?
 
-The _4M_ consists in relaying all operations, such as complex, redondant, or asynchronous operations to the middleware. **It allows complex flows to be modulary, therefore better reusable, testable and maintainable over time**.
+The _4M_ consists in relaying **all operations**, such as complex, redondant, or asynchronous operations **to the middleware**. **It allows complex flows to be modulary, therefore better reusable, testable and maintainable over time**.
 
-Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation.
+Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation. This javascript object contains all the configuration / instructions needed for the middleware to run properly. All this configuration may contain optional arguments and be held under a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
 
 A _4M_ compliant middleware is **self sufficient** and **reusable**.
-
-A _4M_ compliant middleware has to use a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
 
 A _4M_ compliant middleware can use a new layer in the data-flow called **Reactions**. Reactions are functions executed at the end of a given middleware operation, meant to override the default behaviour of the middleware. They can be used for any purposes, such as action routing.
 
@@ -37,7 +35,7 @@ Reactions **must contain** an argument called _next_, passed by the middleware, 
 
 - Example of simple reactions : `onSuccess`, `onError`, `onThrottle`, `onUnexpectedStatus`,..
 
-- Detailed example of `onSuccess`:
+- Detailed example of `onSuccess`, found in the _4M_ compliant middleware [Axiom](https://github.com/vbuzzegoli/axiom):
 
 In `/reactions` :
 
@@ -67,6 +65,8 @@ In `/actions` :
     }
 ```
 
+> Note that [Axiom](https://github.com/vbuzzegoli/axiom), just like any 4M compliant middleware, only requires a set of parameters nested into its parent key to run properly. This action would trigger a call to the iTunes API and automatically fill the payload with the data fetched, in that specific case an array of objects.
+
 ### Redux 4M data-flow
 
 ![redux-4M-flow](resources/redux-4M-flow.jpg)
@@ -87,7 +87,7 @@ Common uses could include, (not limited to) :
 
 ## Version
 
-1.2.5
+1.3.0
 
 ## Credits
 
