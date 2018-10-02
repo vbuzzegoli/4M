@@ -6,7 +6,7 @@ Spy shows the 3 layers impacted by a _4M_ implementation.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## License
 
