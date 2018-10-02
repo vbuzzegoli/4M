@@ -21,7 +21,7 @@ It's real power and complexity relies in its _middleware_.
 
 ### What is the 4M ?
 
-_4M_ is a standard of implementation for Redux systems. In that sense, _4M_ does not have a core implementation on its own. _4M_ is a set of rules to follow to build much more efficient Redux systems.
+> _4M_ is a standard of implementation for Redux systems. In that sense, _4M_ does not have a core implementation on its own. _4M_ is a set of rules to follow to build much more efficient Redux systems.
 
 The _4M_ consists in relaying **all operations**, such as complex, redondant, or asynchronous operations **to the middleware**. **It allows complex flows to be modulary, therefore better reusable, testable and maintainable over time**.
 
@@ -141,7 +141,7 @@ In `/actions` :
 
 ## Version
 
-1.5.3
+1.5.4
 
 ## Credits
 
