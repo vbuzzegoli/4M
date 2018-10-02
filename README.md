@@ -23,7 +23,7 @@ It's real power and complexity relies in its _middleware_.
 
 The _4M_ consists in relaying **all operations**, such as complex, redondant, or asynchronous operations **to the middleware**. **It allows complex flows to be modulary, therefore better reusable, testable and maintainable over time**.
 
-Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation. This javascript object contains all the configuration / instructions needed for the middleware to run properly. All this configuration may contain optional arguments and be held under a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
+Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation. This javascript object contains all the configuration / instructions needed for the middleware to run properly. All this configuration may contain optional arguments and must be held under a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
 
 A _4M_ compliant middleware is **self sufficient** and **reusable**.
 
@@ -87,7 +87,7 @@ Common uses could include, (not limited to) :
 
 ## Version
 
-1.3.0
+1.3.1
 
 ## Credits
 
