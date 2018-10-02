@@ -21,6 +21,8 @@ It's real power and complexity relies in its _middleware_.
 
 ### What is the 4M ?
 
+_4M_ is a standard of implementation for Redux systems. In that sense, _4M_ does not have a core implementation on its own. _4M_ is a set of rules to follow to build much more efficient Redux systems.
+
 The _4M_ consists in relaying **all operations**, such as complex, redondant, or asynchronous operations **to the middleware**. **It allows complex flows to be modulary, therefore better reusable, testable and maintainable over time**.
 
 Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation. This javascript object contains all the configuration / instructions needed for the middleware to run properly. All this configuration may contain optional arguments and must be held under a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
@@ -101,11 +103,11 @@ Common uses could include, (not limited to) :
 - encryption / decryption
 - hashing
 - throttling (e.g. [Hurakken](https://github.com/vbuzzegoli/hurakken))
-- logging
+- logging (e.g. [Spy](https://github.com/vbuzzegoli/spy))
 - analytics
 - performance tracking
 - networking / REST (e.g. [Axiom](https://github.com/vbuzzegoli/axiom))
-- multi-dispatching
+- multi-dispatching (e.g. [Alfred](https://github.com/vbuzzegoli/alfred))
 
 ### Chaining middleware for complex flows
 
@@ -139,7 +141,7 @@ In `/actions` :
 
 ## Version
 
-1.5.1
+1.5.3
 
 ## Credits
 
