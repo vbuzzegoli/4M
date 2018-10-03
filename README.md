@@ -75,7 +75,7 @@ In `/actions` :
 
 ![redux-4M-flow](resources/redux-4M-flow.jpg)
 
-### The 15 Commandments
+### The 16 Commandments
 
 To be **4M** compliant you'll need to tick all of these boxes :
 
@@ -93,7 +93,8 @@ To be **4M** compliant you'll need to tick all of these boxes :
 12. Internally, these _reactions_ must always be called at the end of the core process of the middleware, no action or mutation can possibly come after the call a given reaction
 13. _Reactions_ must at least contain these 3 arguments, passed by the middleware : `action`, `next`, `dispatch`
 14. A middleware should mutate the `action.type` and never handle routing on its own. Routing, being specific to every project, should be handled in the _Reaction_ layer
-15. Live a much happier life using Redux from now on :rocket:
+15. _Reactions_ must be available for every possible outcome in the given middleware, to allow the user to properly handle side effects based on their specific system and needs
+16. Live a much happier life using Redux from now on :rocket:
 
 ### Examples of use
 
@@ -141,7 +142,7 @@ In `/actions` :
 
 ## Version
 
-1.5.4
+1.6.0
 
 ## Credits
 
