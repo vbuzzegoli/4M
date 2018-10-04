@@ -27,6 +27,8 @@ The _4M_ consists in relaying **all operations**, such as complex, redondant, or
 
 Besides, using middleware accordingly to the 4M allows one to _drastically simplify and standardize the action layer_ by reducing it to a simple **javascript object**, as intended by the native Redux implementation. This javascript object contains all the configuration / instructions needed for the middleware to run properly. All this configuration may contain optional arguments and must be held under a **unique parent key** to ensure compatibility with other _4M_ compliant middleware. It is suggested to use the name of the `npm` module. Also, it should not override any other keys, unrelated to the given middleware.
 
+A _4M_ compliant middleware must include **input validation**.
+
 A _4M_ compliant middleware is **self sufficient** and **reusable**.
 
 A _4M_ compliant middleware can use a new layer in the data-flow called **Reactions**. Reactions are functions executed at the end of a given middleware operation, meant to override the default behaviour of the middleware. They can be used for any purposes, such as action routing.
@@ -98,10 +100,10 @@ To be **4M** compliant you'll need to tick all of these boxes :
 17. Each middleware must include a `onInvalidInput` _reaction_ to allow the user to handle situations where an invalid input is encountered
 18. Each middleware must by default log an error message in the console when invalid inputs are encountered and no custom _reaction_ is implemented
 19. This error message has to be able to be turned off using `silentCrash: true`
-20. By default, when an invalid input is encountered, transfer the action to the next middleware / reducer without mutating it
-21. `silentCrash` must be checked first, if the input is invalid it should be set back to the default value _false_
-22. `onInvalidInput` must be checked right after `silentCrash`
-23. Live a much happier life using Redux from now on :rocket:
+20. By default, when an invalid input is encountered, set it back to its default value after possible logging the issue (if `silentCrash` is disabled or not specified)
+21. The type of `silentCrash` must be checked first
+22. The type of `onInvalidInput` must be checked right after `silentCrash`
+23. Sit back and live a much happier life using Redux from now on :rocket:
 
 > Note : Check out the [example](https://github.com/vbuzzegoli/4M/tree/master/example) attached to get a real life example of such an implementation
 
@@ -151,7 +153,7 @@ In `/actions` :
 
 ## Version
 
-1.7.2
+1.8.0
 
 ## Credits
 
