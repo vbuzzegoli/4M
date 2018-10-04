@@ -75,7 +75,7 @@ In `/actions` :
 
 ![redux-4M-flow](resources/redux-4M-flow.jpg)
 
-### The 21 Commandments
+### The 23 Commandments
 
 To be **4M** compliant you'll need to tick all of these boxes :
 
@@ -99,7 +99,9 @@ To be **4M** compliant you'll need to tick all of these boxes :
 18. Each middleware must by default log an error message in the console when invalid inputs are encountered and no custom _reaction_ is implemented
 19. This error message has to be able to be turned off using `silentCrash: true`
 20. By default, when an invalid input is encountered, transfer the action to the next middleware / reducer without mutating it
-21. Live a much happier life using Redux from now on :rocket:
+21. `silentCrash` must be checked first, if the input is invalid it should be set back to the default value _false_
+22. `onInvalidInput` must be check right after `silentCrash`
+23. Live a much happier life using Redux from now on :rocket:
 
 ### Examples of use
 
@@ -147,7 +149,7 @@ In `/actions` :
 
 ## Version
 
-1.7.0
+1.7.1
 
 ## Credits
 

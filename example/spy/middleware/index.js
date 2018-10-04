@@ -8,6 +8,7 @@ const spy = store => next => action => {
   const {
     log = false,
     onLog = false,
+    onInvalidInput = false,
     _skip = false // used for backward compatibility with thunk / saga
   } = action.spy;
 
