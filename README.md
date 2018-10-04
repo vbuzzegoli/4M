@@ -77,7 +77,7 @@ In `/actions` :
 
 ![redux-4M-flow](resources/redux-4M-flow.jpg)
 
-### The 23 Commandments
+### The 24 Commandments
 
 To be **4M** compliant you'll need to tick all of these boxes :
 
@@ -103,7 +103,8 @@ To be **4M** compliant you'll need to tick all of these boxes :
 20. By default, when an invalid input is encountered, set it back to its default value after possible logging the issue (if `silentCrash` is disabled or not specified)
 21. The type of `silentCrash` must be checked first
 22. The type of `onInvalidInput` must be checked right after `silentCrash`
-23. Sit back and live a much happier life using Redux from now on :rocket:
+23. `_skip` should not be set when triggering `onInvalidInput`
+24. Sit back and live a much happier life using Redux from now on :rocket:
 
 > Note : Check out the [example](https://github.com/vbuzzegoli/4M/tree/master/example) attached to get a real life example of such an implementation
 
@@ -153,7 +154,7 @@ In `/actions` :
 
 ## Version
 
-1.8.1
+1.8.2
 
 ## Credits
 
