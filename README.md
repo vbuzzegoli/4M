@@ -100,8 +100,10 @@ To be **4M** compliant you'll need to tick all of these boxes :
 19. This error message has to be able to be turned off using `silentCrash: true`
 20. By default, when an invalid input is encountered, transfer the action to the next middleware / reducer without mutating it
 21. `silentCrash` must be checked first, if the input is invalid it should be set back to the default value _false_
-22. `onInvalidInput` must be check right after `silentCrash`
+22. `onInvalidInput` must be checked right after `silentCrash`
 23. Live a much happier life using Redux from now on :rocket:
+
+> Note : Check out the [example](https://github.com/vbuzzegoli/4M/tree/master/example) attached to get a real life example of such an implementation
 
 ### Examples of use
 
@@ -149,7 +151,7 @@ In `/actions` :
 
 ## Version
 
-1.7.1
+1.7.2
 
 ## Credits
 
