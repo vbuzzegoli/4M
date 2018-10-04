@@ -97,7 +97,7 @@ To be **4M** compliant you'll need to tick all of these boxes :
 14. _Reactions_ must at least contain these 3 arguments, passed by the middleware : `action`, `next`, `dispatch`
 15. A middleware should not mutate the `action.type` and never handle routing on its own. Routing, being specific to every project, should be handled in the _Reaction_ layer
 16. _Reactions_ must be available for every possible outcome in the given middleware, to allow the user to properly handle side effects based on their specific system and needs
-17. Each middleware must include a `onInvalidInput` _reaction_ to allow the user to handle situations where an invalid input is encountered
+17. Each middleware must include a `onInvalidInput` _reaction_ to allow the user to handle situations where an invalid input is encountered, taking `inputName`, `action`, `next`, and `dispatch` as parameters
 18. Each middleware must by default log an error message in the console when invalid inputs are encountered and no custom _reaction_ is implemented
 19. This error message has to be able to be turned off using `silentCrash: true`
 20. By default, when an invalid input is encountered, set it back to its default value after possible logging the issue (if `silentCrash` is disabled or not specified)
@@ -153,7 +153,7 @@ In `/actions` :
 
 ## Version
 
-1.8.0
+1.8.1
 
 ## Credits
 
