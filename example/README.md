@@ -1,12 +1,14 @@
-# Simple example of a 4M compliant middleware
+# Simple example of a 4M 1.6 compliant middleware
 
 ## Spy : a logger middleware for Redux
 
-Spy shows the 3 layers impacted by a _4M_ implementation.
+Spy shows the 3 layers impacted by a _4M_ 1.6 implementation.
+
+> Note : a _4M_ 1.7 implementation example is on its way
 
 ## Version
 
-1.1.0
+1.1.1
 
 ## License
 
